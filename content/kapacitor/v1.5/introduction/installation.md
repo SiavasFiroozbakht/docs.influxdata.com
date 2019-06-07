@@ -29,7 +29,7 @@ Kapacitor has two binaries:
 * kapacitord: the Kapacitor server daemon.
 
 You can download the binaries directly from the
-[downloads](https://portal.influxdata.com/downloads) page.
+[downloads](https://influxdata.com/downloads/#kapacitor) page.
 
 ### Starting the Kapacitor service
 
@@ -42,7 +42,7 @@ manually by running:
 ./kapacitord -config <PATH TO CONFIGURATION>
 ```
 
-#### macOS (using Homebrew)
+#### OS X (using Homebrew)
 
 To have `launchd` start Kapacitor at login:
 
@@ -92,22 +92,3 @@ To generate a new configuration file, run:
 ```
 kapacitord config > kapacitor.generated.conf
 ```
-
-### Time zone
-
-To display alerts notifications using a preferred time zone, either change the time zone
-of the host on which Kapacitor is running or set the Kapacitor process' `TZ` environment variable.
-
-#### systemd
-
-Add the environment variable using `systemctl edit kapacitor`:
-
-```
-[Service]
-Environment="TZ=Asia/Shanghai"
-```
-
-#### docker
-
-Set the environment variable using the `-e` flag when starting the container (`-e TZ=Asia/Shanghai`)
-or in your `docker-compose.yml`.

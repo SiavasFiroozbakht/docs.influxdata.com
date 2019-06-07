@@ -38,7 +38,8 @@ cluster, and they use the
 all meta nodes.
 
 Before you begin, stop writing historical data to InfluxDB.
-Historical data has a timestamp that occurs in the past (not real-time data).
+Historical data are data with timestamps that occur in the past, that is, they're
+data that aren't real-time data.
 Performing a rebalance while writing historical data can lead to data loss.
 
 ## Rebalance Procedure 1: Rebalance a cluster to create space

@@ -39,7 +39,7 @@ Examples:
 ```sh
   sudo systemctl start chronograf --develop --reporting-disabled
 ```
-* macOS: Using shortcut options to set develop mode and disable reporting
+* Mac OS X: Using shortcut options to set develop mode and disable reporting
 
 ```sh
   chronograf -d -r
@@ -144,7 +144,7 @@ Environment variable: `$INFLUXDB_PASSWORD`
 ## Kapacitor connection options
 
 > Kapacitor connection details specified via command line when starting Chronograf do not persist when Chronograf is shut down.
-> To persist connection details, [include them in a `.kap` file](/chronograf/v1.6/administration/creating-connections/#managing-kapacitor-connections-using-kap-files) located in your [`--resources-path`](#resources-path).
+> To persist connection details, [include them in a `.kap` file](/chronograf/v1.6/administration/creating-connections/#managing-influxdb-connections-using-kap-files) located in your [`--resources-path`](#resources-path).
 
 ### `--kapacitor-url=`
 
@@ -399,9 +399,3 @@ Environment variable: `$GENERIC_TOKEN_URL`
 The URL that returns OpenID UserInfo-compatible information.
 
 Environment variable: `$GENERIC_API_URL`
-
-#### `--generic-api-key=`
-
-The JSON lookup key into OpenID UserInfo (Azure should be `userPrincipalName`).
-
-Environment variable: `$GENERIC_API_KEY`

@@ -11,23 +11,19 @@ menu:
     parent: nodes
 ---
 
-The `barrier` node emits a barrier with the current time according to the system clock.
-Because the [BarrierNode](/kapacitor/v1.5/nodes/barrier_node/) emits based on system time,
-it allows pipelines to be forced in the absence of data traffic.
-The emitted barrier is based on either idle time since the last received
-message or on a periodic timer based on the system clock.
-Any messages received after an emitted barrier that are older than the last
-emitted barrier are dropped.
+The `barrier` node emits a barrier with the current time according to the system
+clock. Since the [BarrierNode](/kapacitor/v1.5/nodes/barrier_node/) emits based on system time, it allows pipelines to be
+forced in the absence of data traffic. The barrier emitted will be based on either
+idle time since the last received message or on a periodic timer based on the system
+clock. Any messages received after an emitted barrier that is older than the last
+emitted barrier will be dropped.
 
-##### Example barrier node
+Example:
+
 
 ```js
 stream
-  |from()
-    .measurement('cpu')
-  |barrier()
-    .idle(5s)
-    .delete()
+  |barrier().idle(5s)
   |window()
     .period(10s)
     .every(5s)
@@ -40,7 +36,7 @@ stream
 
 | Chaining Method | Description |
 |:---------|:---------|
-| **barrier&nbsp;(&nbsp;)** | Create a new Barrier node that emits a BarrierMessage periodically  |
+| **[barrier](#description)&nbsp;(&nbsp;)** | Create a new Barrier node that emits a BarrierMessage periodically  |
 
 ### Property Methods
 
@@ -48,7 +44,6 @@ stream
 |:---|:---|
 | **[idle](#idle)&nbsp;(&nbsp;`value`&nbsp;`time.Duration`)** | Emit barrier based on idle time since the last received message. Must be greater than zero.  |
 | **[period](#period)&nbsp;(&nbsp;`value`&nbsp;`time.Duration`)** | Emit barrier based on periodic timer.  The timer is based on system clock rather than message time. Must be greater than zero.  |
-| **[delete](#delete)&nbsp;(&nbsp;)** | Delete the group after processing each barrier. |
 | **[quiet](#quiet)&nbsp;(&nbsp;)** | Suppress all error logging events from this node.  |
 
 
@@ -140,22 +135,6 @@ barrier.period(value time.Duration)
 
 <a class="top" href="javascript:document.getElementsByClassName('article-heading')[0].scrollIntoView();" title="top"><span class="icon arrow-up"></span></a>
 
-### Delete
-
-Delete indicates that the group should be deleted after processing each barrier.
-This includes the barrier node itself, meaning that if `delete` is `true`, the barrier
-is triggered only once for each group and the barrier node forgets about the group.
-The group will be created again if a new point is received for the group.
-
-This is useful if you have increasing cardinality over time as once a barrier is
-triggered for a group it is then deleted, freeing any resources managing the group.
-
-```js
-barrier.delete()
-```
-
-<a class="top" href="javascript:document.getElementsByClassName('article-heading')[0].scrollIntoView();" title="top"><span class="icon arrow-up"></span></a>
-
 
 ### Quiet
 
@@ -230,7 +209,7 @@ Returns: [ChangeDetectNode](/kapacitor/v1.5/nodes/change_detect_node/)
 
 ### Combine
 
-Combine this node with itself. The data is combined on timestamp.
+Combine this node with itself. The data are combined on timestamp.
 
 
 ```js
@@ -537,7 +516,7 @@ Returns: [InfluxQLNode](/kapacitor/v1.5/nodes/influx_q_l_node/)
 ### HttpOut
 
 Create an HTTP output node that caches the most recent data it has received.
-The cached data is available at the given endpoint.
+The cached data are available at the given endpoint.
 The endpoint is the relative path from the API endpoint of the running task.
 For example, if the task endpoint is at `/kapacitor/v1/tasks/<task_id>` and endpoint is
 `top10`, then the data can be requested from `/kapacitor/v1/tasks/<task_id>/top10`.
@@ -581,7 +560,7 @@ Returns: [InfluxDBOutNode](/kapacitor/v1.5/nodes/influx_d_b_out_node/)
 
 ### Join
 
-Join this node with other nodes. The data is joined on timestamp.
+Join this node with other nodes. The data are joined on timestamp.
 
 
 ```js

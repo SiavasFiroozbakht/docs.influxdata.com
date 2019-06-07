@@ -31,7 +31,13 @@ $('#navbar--product-menu').click( function() {
 
 /* Open Sidebar */
 $('#sidebar--toggle').click( function() {
-	$('#sidebar, .sidebar--toggle').toggleClass('open');
+	$('#sidebar').addClass('open');
+	$('#sidebar--mask-container').addClass('open');
+});
+/* Close Sidebar */
+$('#sidebar--mask').click( function() {
+	$('#sidebar').removeClass('open');
+	$('#sidebar--mask-container').removeClass('open');
 });
 
 function getRandomIntInclusive(min, max) {
@@ -53,17 +59,15 @@ $(function(){
 });
 
 /**
- * Behavior for the tabs widgets.
+ * Behavior for the vertical tab widget.
  */
+$(function() {
+	const tab = '.vertical-tabs a';
+	const content = '.vertical-tab-content';
 
- function tabbedContent(container, tab, content) {
-
-	// Add the active class to the first tab in each tab group,
-	// in case it wasn't already set in the markup.
-	$(container).each(function () {
-		$(tab, this).removeClass('is-active');
-		$(tab + ':first', this).addClass('is-active');
-	});
+	// Add the active class to the first tab, in case it wasn't already set in the markup.
+	$(tab).removeClass('is-active');
+	$(tab + ':first').addClass('is-active');
 
 	$(tab).on('click', function(e) {
 		e.preventDefault();
@@ -76,35 +80,51 @@ $(function(){
 		$(content).each(function(i) {
 			if (i === activeIndex) {
 				$(this).show();
-				$(this).siblings(content).hide();
+			} else {
+				$(this).hide();
 			}
 		});
 	});
-}
-
-tabbedContent('.code-tabs-wrapper', '.code-tabs p a', '.code-tab-content');
-tabbedContent('.tabs-container', '.tabs p a', '.tab-content');
+});
 
 
 // Randomize advertisement content on page load
 // Ad content stored in object
 
-$ads = [
-	{ class: "cloud",	file: "/promos/cloud.html" },
-	// { class: "influx-days",	file: "/promos/influx-days.html" },
-	{ class: "enterprise", file: "/promos/enterprise.html" }
+$advertContent = [
+  {
+    ctaText: "Try InfluxCloud",
+    ctaLink: "https://cloud.influxdata.com/",
+    advertText: "Collect, store, and retrieve time-series data in one minute.",
+    style: "support-ad--cloud",
+  },
+  {
+    ctaText: "Try InfluxEnterprise",
+    ctaLink: "https://portal.influxdata.com/",
+    advertText: "Unlock powerful insights that help you delight your customers.",
+    style: "support-ad--enterprise",
+  },
 ]
-
 $(document).on('ready', function(){
+  $numAdverts = $advertContent.length;
+  $randomizer = Math.floor(Math.random() * $numAdverts);
+  $contentToInject = $advertContent[$randomizer];
 
-  $numAds = $ads.length;
-  $randomizer = Math.floor(Math.random() * $numAds);
-  $adContent = $ads[$randomizer];
+  $ctaButton = $('<a />')
+  	.addClass('sidebar--support-ad--cta')
+  	.attr({
+  		'href': $contentToInject.ctaLink,
+  		'target': '_blank'
+  	})
+  	.text($contentToInject.ctaText);
+  $advertText = $('<p />')
+  	.addClass('sidebar--support-ad--desc')
+  	.text($contentToInject.advertText);
 
-	$('#sidebar--ad').addClass($adContent.class)
-	$('#sidebar--ad').load($adContent.file)
+  $('#support-ad')
+  	.addClass($contentToInject.style)
+  	.append($advertText,$ctaButton);
 });
-
 
 /*
  * Add class to outbound title links on section landing pages
@@ -121,7 +141,7 @@ $(document).ready( function(){
 
 	// Remove heading border if not followed by a paragraph
 	$('h2').each(function() {
-		var hasParagraph = $(this).next(':not(h1,h2)').length
+		var hasParagraph = $(this).next('p, ol, ul, table, code, pre').length
 		if(hasParagraph == 0) {
 			$(this).addClass('no-paragraph');
 		};
@@ -172,46 +192,5 @@ $(document).ready( function(){
 	// Revert to default Chronograf URL
 	$('#default-chronograf-url').click(function() {
 		revertToDefault();
-	})
-})
-
-/*
- * Reposition sidebar on vertical scroll
- */
-
-$(document).ready( function() {
-	var offsetElement = $("#main-nav")
-	element = $("#sidebar")
-
-	$("body").scroll(function() {
-		var pos = offsetElement.offset().top + offsetElement.outerHeight(true);
-		if ( pos < 0 ) {
-			$(element).css("top", "0px");
-		} else if ( pos <= 64 ){
-			$(element).css("top", pos + "px");
-		}
-	})
-})
-
-/*
- * Nested left nav toggle behavior
- */
-
-$(document).ready( function() {
-	$(".sidebar--children-toggle").click(function(e) {
-		e.preventDefault()
-		$(this).toggleClass('open');
-		$(this).siblings('.sidebar--children').toggleClass('open');
-	})
-})
-
-/*
- * Content Truncate toggle
- */
-
-$(document).ready( function() {
-	$(".article-content .truncate-toggle").click(function(e) {
-		e.preventDefault()
-		$(this).closest('.truncate').toggleClass('closed');
 	})
 })

@@ -43,11 +43,6 @@ SectionPagesMenu = "products"
   identifier = "enterprise_kapacitor"
   weight = 50
   url = "/enterprise_kapacitor/"
-[[menu.products]]
-  name = "Flux"
-  identifier = "flux"
-  weight = 60
-  url = "/flux/"
 
   # InfluxDB v1.4 Menu
   [[menu.influxdb_1_4]]
@@ -146,19 +141,19 @@ SectionPagesMenu = "products"
   name = "Technical Papers"
   identifier = "technicalpapers"
   weight = 10
-  url = "https://www.influxdata.com/_resources/techpapers-new/"
+  url = "https://www.influxdata.com/technical-papers/"
   parent = "external_resources"
 [[menu.influxdb_1_4]]
   name = "Meetup Videos"
   identifier = "meetupvideos"
   weight = 20
-  url = "https://www.influxdata.com/_resources/videosnew//"
+  url = "https://www.influxdata.com/videos/"
   parent = "external_resources"
 [[menu.influxdb_1_4]]
   name = "Virtual Training Videos"
   identifier = "virtualtrainingvideos"
   weight = 30
-  url = "https://www.influxdata.com/_resources/videosnew/"
+  url = "https://www.influxdata.com/videos-training/"
   parent = "external_resources"
 [[menu.influxdb_1_4]]
   name = "Virtual Training Schedule"
@@ -228,7 +223,7 @@ SectionPagesMenu = "products"
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#influxdb"
   parent = "introduction"
 # InfluxDB v1.3 Sub-Menu - About
 [[menu.influxdb_1_3]]
@@ -266,19 +261,19 @@ SectionPagesMenu = "products"
   name = "Technical Papers"
   identifier = "technicalpapers"
   weight = 10
-  url = "https://www.influxdata.com/_resources/techpapers-new/"
+  url = "https://www.influxdata.com/technical-papers/"
   parent = "external_resources"
 [[menu.influxdb_1_3]]
   name = "Meetup Videos"
   identifier = "meetupvideos"
   weight = 20
-  url = "https://www.influxdata.com/_resources/videosnew//"
+  url = "https://www.influxdata.com/videos/"
   parent = "external_resources"
 [[menu.influxdb_1_3]]
   name = "Virtual Training Videos"
   identifier = "virtualtrainingvideos"
   weight = 30
-  url = "https://www.influxdata.com/_resources/videosnew/"
+  url = "https://www.influxdata.com/videos-training/"
   parent = "external_resources"
 [[menu.influxdb_1_3]]
   name = "Virtual Training Schedule"
@@ -355,7 +350,7 @@ SectionPagesMenu = "products"
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#influxdb"
   parent = "introduction"
 # InfluxDB v1.2 Sub-Menu - About
 [[menu.influxdb_1_2]]
@@ -393,19 +388,19 @@ SectionPagesMenu = "products"
   name = "Technical Papers"
   identifier = "technicalpapers"
   weight = 10
-  url = "https://www.influxdata.com/_resources/techpapers-new/"
+  url = "https://www.influxdata.com/technical-papers/"
   parent = "external_resources"
 [[menu.influxdb_1_2]]
   name = "Meetup Videos"
   identifier = "meetupvideos"
   weight = 20
-  url = "https://www.influxdata.com/_resources/videosnew//"
+  url = "https://www.influxdata.com/videos/"
   parent = "external_resources"
 [[menu.influxdb_1_2]]
   name = "Virtual Training Videos"
   identifier = "virtualtrainingvideos"
   weight = 30
-  url = "https://www.influxdata.com/_resources/videosnew/"
+  url = "https://www.influxdata.com/videos-training/"
   parent = "external_resources"
 [[menu.influxdb_1_2]]
   name = "Virtual Training Schedule"
@@ -482,7 +477,7 @@ SectionPagesMenu = "products"
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#influxdb"
   parent = "introduction"
 
 # InfluxDB v1.1 Sub-Menu - About
@@ -528,19 +523,19 @@ SectionPagesMenu = "products"
   name = "Technical Papers"
   identifier = "technicalpapers"
   weight = 10
-  url = "https://www.influxdata.com/_resources/techpapers-new/"
+  url = "https://www.influxdata.com/technical-papers/"
   parent = "external_resources"
 [[menu.influxdb_1_1]]
   name = "Meetup Videos"
   identifier = "meetupvideos"
   weight = 20
-  url = "https://www.influxdata.com/_resources/videosnew//"
+  url = "https://www.influxdata.com/videos/"
   parent = "external_resources"
 [[menu.influxdb_1_1]]
   name = "Virtual Training Videos"
   identifier = "virtualtrainingvideos"
   weight = 30
-  url = "https://www.influxdata.com/_resources/videosnew/"
+  url = "https://www.influxdata.com/videos-training/"
   parent = "external_resources"
 [[menu.influxdb_1_1]]
   name = "Virtual Training Schedule"
@@ -560,7 +555,7 @@ SectionPagesMenu = "products"
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#kapacitor"
   parent = "introduction"
 
 # Kapacitor v1.1 Sub-Menu - Introduction
@@ -568,14 +563,14 @@ SectionPagesMenu = "products"
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#kapacitor"
 
 # Kapacitor v1.3 Sub-Menu - Introduction
 [[menu.kapacitor_1_3]]
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#kapacitor"
   parent = "introduction"
 
 
@@ -584,7 +579,7 @@ SectionPagesMenu = "products"
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#kapacitor"
   parent = "introduction"
 
 # Kapacitor v0.13 Sub-Menu - Introduction
@@ -592,7 +587,7 @@ SectionPagesMenu = "products"
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#kapacitor"
   parent = "introduction"
 
 # Chronograf v1.3 Sub-Menu - Introduction
@@ -616,7 +611,7 @@ SectionPagesMenu = "products"
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#chronograf"
   parent = "Introduction"
 
 # Telegraf v1.5 Sub-Menu - Introduction
@@ -624,7 +619,7 @@ SectionPagesMenu = "products"
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#telegraf"
   parent = "introduction"
 
 # Telegraf v1.4 Sub-Menu - Output Plugins
@@ -766,7 +761,7 @@ SectionPagesMenu = "products"
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#telegraf"
   parent = "introduction"
   [[menu.telegraf_1_4]]
   name = "Aerospike"
@@ -1482,7 +1477,7 @@ SectionPagesMenu = "products"
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#telegraf"
   parent = "introduction"
   [[menu.telegraf_1_3]]
   name = "Aerospike"
@@ -2112,7 +2107,7 @@ SectionPagesMenu = "products"
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#telegraf"
   parent = "introduction"
   [[menu.telegraf_1_2]]
   name = "AWS CloudWatch"
@@ -2705,7 +2700,7 @@ SectionPagesMenu = "products"
   name = "Download"
   identifier = "download"
   weight = 1
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#telegraf"
   parent = "introduction"
 
   [[menu.telegraf_1_1]]
@@ -3250,7 +3245,7 @@ SectionPagesMenu = "products"
    name = "Download"
    identifier = "download"
    weight = 5
-   url = "https://portal.influxdata.com/downloads"
+   url = "https://influxdata.com/downloads/#telegraf"
    parent = "introduction"
 
 # Telegraf v1.0 Sub-Menu - Output Plugins
@@ -3873,7 +3868,7 @@ parent = "inputs"
    name = "Download"
    identifier = "download"
    weight = 5
-   url = "https://portal.influxdata.com/downloads"
+   url = "https://influxdata.com/downloads/#telegraf"
    parent = "introduction"
 
   # Telegraf v0.13 Sub-Menu - Output Plugins
@@ -5887,7 +5882,7 @@ parent = "inputs"
     name = "Download"
     identifier = "download"
     weight = 5
-    url = "https://portal.influxdata.com/downloads"
+    url = "https://influxdata.com/downloads/#influxdb"
     parent = "introduction"
 
   # InfluxDB v1.0 Sub-Menu - About
@@ -5978,7 +5973,7 @@ parent = "inputs"
     name = "Download"
     identifier = "download"
     weight = 5
-    url = "https://portal.influxdata.com/downloads"
+    url = "https://influxdata.com/downloads/#influxdb"
     parent = "introduction"
 
   # InfluxDB v0.13 Sub-Menu - About
@@ -6069,7 +6064,7 @@ parent = "inputs"
     name = "Download"
     identifier = "download"
     weight = 5
-    url = "https://portal.influxdata.com/downloads"
+    url = "https://influxdata.com/downloads/#influxdb"
     parent = "introduction"
 
   # InfluxDB v0.12 Sub-Menu - About
@@ -6155,7 +6150,7 @@ parent = "inputs"
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#influxdb"
   parent = "introduction"
 
 # InfluxDB v0.11 Sub-Menu - About
@@ -6242,7 +6237,7 @@ parent = "inputs"
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#influxdb"
   parent = "introduction"
 
 # InfluxDB v0.10 Sub-Menu - About
@@ -6329,7 +6324,7 @@ parent = "inputs"
   name = "Download"
   identifier = "download"
   weight = 5
-  url = "https://portal.influxdata.com/downloads"
+  url = "https://influxdata.com/downloads/#influxdb"
   parent = "introduction"
 
 # InfluxDB v0.9 Sub-Menu - About

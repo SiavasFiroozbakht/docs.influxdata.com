@@ -114,7 +114,7 @@ The measurement has one [tag key](/influxdb/v1.1/concepts/glossary/#tag-key)
 The measurement also has two [fields](/influxdb/v1.1/concepts/glossary/#field):
 `level description` stores string [field values](/influxdb/v1.1/concepts/glossary/#field-value)
 and `water_level` stores float field values.
-All of these data is in the `NOAA_water_database` [database](/influxdb/v1.1/concepts/glossary/#database).
+All of these data are in the `NOAA_water_database` [database](/influxdb/v1.1/concepts/glossary/#database).
 
 > **Disclaimer:** The `level description` field isn't part of the original NOAA data - we snuck it in there for the sake of having a field key with a special character and string field values.
 
@@ -1353,7 +1353,7 @@ Reports the value from the previous time interval for time intervals with no dat
 
 #### Examples
 
-{{< tab-labels >}}
+{{< vertical-tabs >}}
 {{% tabs %}}
 [Example 1: fill(100)](#)
 [Example 2: fill(linear)](#)
@@ -1534,7 +1534,7 @@ the value from the previous time interval.
 {{% /tab-content %}}
 
 {{< /tab-content-container >}}
-{{< /tab-labels >}}
+{{< /vertical-tabs >}}
 
 #### Common issues with `fill()`
 
@@ -2910,7 +2910,7 @@ Separate multiple [`SELECT` statements](#the-basic-select-statement) in a query 
 
 ### Examples:
 
-{{< tab-labels >}}
+{{< vertical-tabs >}}
 {{% tabs %}}
 [Example 1: CLI](#)
 [Example 2: HTTP API](#)
@@ -2992,4 +2992,4 @@ With InfluxDB's [HTTP API](/influxdb/v1.1/tools/api/):
 {{% /tab-content %}}
 
 {{< /tab-content-container >}}
-{{< /tab-labels >}}
+{{< /vertical-tabs >}}

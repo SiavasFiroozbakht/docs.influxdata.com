@@ -41,7 +41,7 @@ Available Statistics:
 
 | Chaining Method | Description |
 |:---------|:---------|
-| **influxDBOut&nbsp;(&nbsp;)** | Create an influxdb output node that will store the incoming data into InfluxDB.  |
+| **[influxDBOut](#description)&nbsp;(&nbsp;)** | Create an influxdb output node that will store the incoming data into InfluxDB.  |
 
 ### Property Methods
 

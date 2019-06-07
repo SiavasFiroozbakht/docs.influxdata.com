@@ -5,7 +5,7 @@ menu:
   kapacitor_1_5:
     name: TICKscript language reference
     identifier: tick
-    weight: 40
+    weight: 20
 ---
 
 ## What is in this section?

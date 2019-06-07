@@ -47,7 +47,7 @@ Configuration settings that specify a duration support the following duration un
 - `d`&nbsp;&emsp;&emsp;&emsp;&emsp;&nbsp;days
 - `w`&nbsp;&emsp;&emsp;&emsp;&emsp;&nbsp;weeks
 
->**Note:** Configuration file settings are documented here for the latest official release - the [sample configuration file on GitHub](https://github.com/influxdb/influxdb/blob/1.4/etc/config.sample.toml) might be slightly newer.
+>**Note:** Configuration file settings are documented here for the latest official release - the [sample configuration file on GitHub](https://github.com/influxdb/influxdb/blob/master/etc/config.sample.toml) might be slightly newer.
 
 ## Environment variables
 
@@ -87,7 +87,7 @@ The InfluxDB system has internal defaults for all of the settings in the configu
 The local InfluxDB configuration file is located here:
 
 - Linux: `/etc/influxdb/influxdb.conf`
-- macOS: `/usr/local/etc/influxdb.conf`
+- MacOS: `/usr/local/etc/influxdb.conf`
 
 Settings that are commented out are set to the internal system defaults. Uncommented settings override the internal defaults.
 Note that the local configuration file does not need to include every configuration setting.
@@ -183,7 +183,7 @@ which stores information on users, databases, retention policies, shards, and co
 The `meta` directory.
 Files in the `meta` directory include `meta.db`, the InfluxDB metastore file.
 
->**Note:** The default directory for macOS installations is `/Users/<username>/.influxdb/meta`
+>**Note:** The default directory for OS X installations is `/Users/<username>/.influxdb/meta`
 
 Environment variable: `INFLUXDB_META_DIR`
 
@@ -212,7 +212,7 @@ The `[data]` settings control where the actual shard data for InfluxDB lives and
 The directory where InfluxDB stores the data.
 This directory may be changed.
 
->**Note:** The default directory for macOS installations is `/Users/<username>/.influxdb/data`.
+>**Note:** The default directory for OS X installations is `/Users/<username>/.influxdb/data`.
 
 Environment variable: `INFLUXDB_DATA_DIR`
 
@@ -228,7 +228,7 @@ Environment variable: `INFLUXDB_DATA_INDEX_VERSION`
 
 The WAL directory is the location of the [write ahead log](/influxdb/v1.4/concepts/glossary/#wal-write-ahead-log).
 
->**Note:** The default WAL directory for macOS installations is `/Users/<username>/.influxdb/wal`.
+>**Note:** The default WAL directory for Mac OS X installations is `/Users/<username>/.influxdb/wal`.
 
 Environment variable: `INFLUXDB_DATA_WAL_DIR`
 
@@ -435,7 +435,7 @@ Environment variable: `INFLUXDB_SHARD_PRECREATION_ADVANCE_PERIOD`
 
 ## Monitoring settings `[monitor]`
 
-This section controls InfluxDB's [system self-monitoring](https://github.com/influxdb/influxdb/blob/1.4/monitor/README.md).
+This section controls InfluxDB's [system self-monitoring](https://github.com/influxdb/influxdb/blob/master/monitor/README.md).
 
 By default, InfluxDB writes the data to the `_internal` database.
 If that database does not exist, InfluxDB creates it automatically.
@@ -619,7 +619,7 @@ Environment variable: `INFLUXDB_SUBSCRIBER_WRITE_BUFFER_SIZE`
 ## Graphite settings `[[graphite]]`
 
 This section controls one or many listeners for Graphite data.
-See the [README](https://github.com/influxdb/influxdb/blob/1.4/services/graphite/README.md) on GitHub for more information.
+See the [README](https://github.com/influxdb/influxdb/blob/master/services/graphite/README.md) on GitHub for more information.
 
 ### `enabled = false`
 
@@ -781,7 +781,7 @@ When set to `split`, multi-value plugin data (e.g. df free:5000,used:1000) will 
 ## OpenTSDB settings `[[opentsdb]]`
 
 Controls the listener for OpenTSDB data.
-See the [README](https://github.com/influxdb/influxdb/blob/1.4/services/opentsdb/README.md) on GitHub for more information.
+See the [README](https://github.com/influxdb/influxdb/blob/master/services/opentsdb/README.md) on GitHub for more information.
 
 ### `enabled = false`
 

@@ -17,8 +17,8 @@
 	height: @nav-height;
 	width: 100%;
 	background-color: @nav-bg;
+	position: fixed;
 	z-index: @z-nav;
-	position: relative;
 }
 .navbar--logo,
 .navbar--hamburger,
@@ -26,10 +26,11 @@
 .navbar--search,
 .theme-switcher {
 	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
 }
 .navbar--logo {
 	left: 1em;
-	top: 1.05em;
 	a {
 		font-size: 1.5rem;
 		color: @nav-logo;
@@ -104,7 +105,8 @@
 .navbar--product-menu {
 	width: 100%;
 	position: absolute;
-	top: .5em;
+	top: 0;
+	width: 100%;
 	height: auto;
 	opacity: 0;
 	transition: opacity 0.25s ease;
@@ -114,12 +116,10 @@
 	width: 100%;
 	height: auto;
 	position: absolute;
-	top: calc(@nav-height * .85);
+	top: 100%;
 	left: 0;
 	visibility: hidden;
 	transition: all 0.25s ease;
-
-	z-index: 100;
 
 	&.open {
 		visibility: visible;
@@ -155,7 +155,6 @@
 }
 .navbar--product-dropdown {
 	display: none;
-	top: .5em;
 	background-color: @c-ocean;
 	height: @nav-component-height;
 	border-radius: @radius;
@@ -177,6 +176,7 @@
 	.navbar--current-product {
 		font-weight: 700;
 		left: 1rem;
+		text-transform: capitalize;
 		font-size: @nav-font-size;
 		font-weight: 400;
 	}
@@ -189,7 +189,6 @@
 	height: @nav-component-height;
 	width: @search-default-width;
 	right: @nav-height;
-	top: .5em;
 
 	> * {
 		position: absolute !important;
@@ -380,15 +379,15 @@
 	.navbar--product-container {
 		left: @sidebar-small-width;
 		width: @product-dropdown-small-width;
-		top: 2.9em;
 
 		&.open {
 			.navbar--dropdown-dismiss {
-				width: 100vw;
-				height: 100vh;
-				position: fixed;
-				top: 0;
-				left: 0;
+				width: 10000px;
+				height: 10000px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
 				z-index: 100;
 
 				&:hover {

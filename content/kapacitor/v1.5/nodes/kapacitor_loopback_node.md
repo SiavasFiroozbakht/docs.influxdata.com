@@ -39,7 +39,7 @@ Available Statistics:
 
 | Chaining Method | Description |
 |:---------|:---------|
-| **kapacitorLoopback&nbsp;(&nbsp;)** | Create an kapacitor loopback node that will send data back into Kapacitor as a stream.  |
+| **[kapacitorLoopback](#description)&nbsp;(&nbsp;)** | Create an kapacitor loopback node that will send data back into Kapacitor as a stream.  |
 
 ### Property Methods
 

@@ -17,7 +17,8 @@ If you're looking for less formal documentation, see the following:
 * [Database management](/influxdb/v1.6/query_language/database_management/)
 * [Authentication and authorization](/influxdb/v1.6/administration/authentication_and_authorization/).
 
-InfluxQL is a SQL-like query language for interacting with InfluxDB and providing features specific to storing and analyzing time series data.
+InfluxQL is a SQL-like query language for interacting with InfluxDB.
+It has been lovingly crafted to feel familiar to those coming from other SQL or SQL-like environments while providing features specific to storing and analyzing time series data.
 
 Sections:
 
@@ -720,7 +721,7 @@ KILL QUERY 36
 ```
 
 ```sql
--- kill query on InfluxDB Enterprise cluster
+-- kill query on InfluxEnterprise cluster
 KILL QUERY 53 ON "myhost:8088"
 ```
 
@@ -806,9 +807,7 @@ SHOW DATABASES
 
 ### SHOW DIAGNOSTICS
 
-Displays node information, such as build information, uptime, hostname, server configuration, memory usage, and Go runtime diagnostics. 
-
-For more information on using the `SHOW DIAGNOSTICS` command, see [Using the SHOW DIAGNOSTICS command for monitoring InfluxDB](/platform/monitoring/influxdata-platform/tools/show-diagnostics/).
+Displays node information, such as build information, uptime, hostname, server configuration, memory usage, and Go runtime diagnostics.
 
 ```sql
 show_diagnostics_stmt = "SHOW DIAGNOSTICS"
@@ -1005,9 +1004,7 @@ SHOW SHARDS
 
 ### SHOW STATS
 
-Returns detailed statistics on available components of an InfluxDB node and available (enabled) components.
-
-For more information on using the `SHOW STATS` command, see [Using the SHOW STATS command to monitor InfluxDB](/platform/monitoring/tools/show-stats/).
+Returns detailed statistics on available components an InfluxDB node and available (enabled) components.
 
 ```
 show_stats_stmt = "SHOW STATS [ FOR '<component>' | 'indexes' ]"

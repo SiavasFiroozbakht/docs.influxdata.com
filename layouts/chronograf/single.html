@@ -1,5 +1,4 @@
 {{ partial "header.html" . }}
-{{ partial "chronograf/sidebar.html" . }}
 <article class="article">
     {{ if .Title }}
     <section class="article-section article-heading">
@@ -16,5 +15,6 @@
     </section>
     {{ partial "chronograf/contribute.html" . }}
 </article>
+{{ partial "chronograf/sidebar.html" . }}
 {{ partial "footer.html" . }}
 {{ partial "chronograf-url-settings.html" . }}

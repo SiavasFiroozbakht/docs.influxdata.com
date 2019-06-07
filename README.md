@@ -3,13 +3,12 @@
 This repository powers [docs.influxdata.com](https://docs.influxdata.com), which
 includes documentation for the following InfluxData projects:
 
-* [InfluxData Platform](https://docs.influxdata.com/platform/introduction/)
 * [Telegraf](https://docs.influxdata.com/telegraf/latest/)
 * [InfluxDB](https://docs.influxdata.com/influxdb/latest/)
 * [InfluxDB Enterprise](https://docs.influxdata.com/enterprise_influxdb/latest/)
 * [Chronograf](https://docs.influxdata.com/chronograf/latest/)
 * [Kapacitor](https://docs.influxdata.com/kapacitor/latest/)
-* [Kapacitor Enterprise](https://docs.influxdata.com/enterprise_kapacitor/latest)
+* [Kapacitor Enterprise](https://docs.influxdata.com/enterprise_kapacitor/latest) 
 
 
 ## Contributing
@@ -51,14 +50,14 @@ Separating each sentence with a new line makes it easy to parse diffs with the h
 
 Diff without semantic linefeeds:
 ``` diff
--Data is taking off. This data is time series. You need a database that specializes in time series. You should check out InfluxDB.
-+Data is taking off. This data is time series. You need a database that specializes in time series. You need InfluxDB.
+-Data are taking off. Those data are time series. You need a database that specializes in time series. You should check out InfluxDB.
++Data are taking off. Those data are time series. You need a database that specializes in time series. You need InfluxDB.
 ```
 
 Diff with semantic linefeeds:
 ``` diff
-Data is taking off.
-This data is time series.
+Data are taking off.
+Those data are time series.
 You need a database that specializes in time series.
 -You should check out InfluxDB.
 +You need InfluxDB.

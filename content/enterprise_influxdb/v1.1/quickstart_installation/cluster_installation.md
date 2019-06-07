@@ -92,7 +92,7 @@ Perform the following steps on all three servers.
 
 ### I. Download and Install the Meta Service
 
-{{< tab-labels >}}
+{{< vertical-tabs >}}
 {{% tabs %}}
 [Ubuntu & Debian (64-bit)](#)
 [RedHat & CentOS (64-bit)](#)
@@ -126,7 +126,7 @@ sudo yum localinstall influxdb-meta-1.1.5_c1.1.5.x86_64.rpm
 {{% /tab-content %}}
 
 {{< /tab-content-container >}}
-{{< /tab-labels >}}
+{{< /vertical-tabs >}}
 
 ### II. Edit the Meta Service Configuration File
 
@@ -186,7 +186,7 @@ Perform the following steps on all three servers.
 
 ### I. Download and Install the Data Service
 
-{{< tab-labels >}}
+{{< vertical-tabs >}}
 {{% tabs %}}
 [Ubuntu & Debian (64-bit)](#)
 [RedHat & CentOS (64-bit)](#)
@@ -220,7 +220,7 @@ sudo yum localinstall influxdb-data-1.1.5_c1.1.5.x86_64.rpm
 {{% /tab-content %}}
 
 {{< /tab-content-container >}}
-{{< /tab-labels >}}
+{{< /vertical-tabs >}}
 
 
 ### II. Edit the Data Service Configuration File

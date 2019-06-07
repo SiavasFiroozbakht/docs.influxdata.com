@@ -54,7 +54,6 @@ influxd backup
     [ -host <host:port> ]
     [ -retention <rp_name> ] | [ -shard <shard_ID> -retention <rp_name> ]
     [ -start <timestamp> [ -end <timestamp> ] | -since <timestamp> ]
-    [ -skip-errors ]
     <path-to-backup>
 ```
 
@@ -89,7 +88,6 @@ Optional arguments are enclosed in brackets.
 
 - `[ -since <timestamp> ]`: Perform an incremental backup after the specified timestamp [RFC3339 format](https://www.ietf.org/rfc/rfc3339.txt). Use `-start` instead, unless needed for legacy backup support.
 
-- `[ -skip-errors ]`: Optional flag to continue backing up the remaining shards when the current shard fails to back up.
 
 #### Backup examples
 
@@ -131,17 +129,6 @@ influxd restore [ -db <db_name> ]
     [ -shard <shard_ID> ]
     <path-to-backup-files>
 ```
-<dt>
-Restoring backups that specified time periods (using `-start` and `-end`)
-
-Backups that specified time intervals using the `-start` or `-end` arguments are performed on blocks of data and not on a point-by-point basis. Since most blocks are highly compacted, extracting each block to inspect each point creates both a computational and disk-space burden on the running system.
-Each data block is annotated with starting and ending timestamps for the time interval included in the block. When you specify `-start` or `-end` timestamps, all of the specified data is backed up, but other data points that are in the same blocks will also be backed up.
-
-**Expected behavior**
-
-- When restoring data, you are likely to see data that is outside of the specified time periods.
-- If  duplicate data points are included in the backup files, the points will be written again, overwriting any existing data.
-</dt>
 
 #### Arguments
 
@@ -181,42 +168,33 @@ influxd restore -portable -db telegraf path-to-backup
 
 **To restore data to a database that already exists:**
 
-You cannot restore directly into a database that already exists. If you attempt to run the `restore` command into an existing database, you will get a message like this:
+1. Restore the database to a temporary database.
+
+ ```
+ influxd restore -portable -db telegraf -newdb telegraf_bak path-to-backup
+ ```
+2. Sideload into the target database and drop the temporary database.
 
 ```
-influxd restore -portable -db existingdb path-to-backup
-
-2018/08/30 13:42:46 error updating meta: DB metadata not changed. database may already exist
-restore: DB metadata not changed. database may already exist
+> use telegraf_bak
+> SELECT * INTO telegraf..:MEASUREMENT FROM /.*/ GROUP BY *
+> drop telegraf_bak
 ```
-
-1. Restore the existing database backup to a temporary database.
-
-    ```
-    influxd restore -portable -db telegraf -newdb telegraf_bak path-to-backup
-    ```
-2. Sideload the data (using a `SELECT ... INTO` statement) into the existing target database and drop the temporary database.
-
-    ```
-    > USE telegraf_bak
-    > SELECT * INTO telegraf..:MEASUREMENT FROM /.*/ GROUP BY *
-    > DROP telegraf_bak
-    ```
 
 **To restore to a retention policy that already exists:**
 
 1. Restore the retention policy to a temporary database.
 
-    ```
-    influxd restore -portable -db telegraf -newdb telegraf_bak -rp autogen -newrp autogen_bak path-to-backup
-    ```
+ ```
+ influxd restore -portable -db telegraf -newdb telegraf_bak -rp autogen -newrp autogen_bak path-to-backup
+ ```
 2. Sideload into the target database and drop the temporary database.
 
-    ```
-    > USE telegraf_bak
-    > SELECT * INTO telegraf.autogen.:MEASUREMENT FROM /telegraf_bak.autogen_bak.*/ GROUP BY *
-    > DROP telegraf_bak
-    ```
+```
+> use telegraf_bak
+> SELECT * INTO telegraf.autogen.:MEASUREMENT FROM /telegraf_bak.autogen_bak.*/ GROUP BY *
+> drop telegraf_bak
+```
 
 ### Backward compatible offline backup and restore (legacy format)
 

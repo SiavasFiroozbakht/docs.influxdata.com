@@ -1,5 +1,5 @@
 ---
-title: InfluxData Contributor License Agreement (CLA)
+title: Contributor license agreement
 menu:
   influxdb_1_6:
     name: Contributor license agreement
@@ -7,6 +7,4 @@ menu:
     parent: About the project
 ---
 
-Before contributing to the InfluxDB OSS project, you must complete and sign
-the [InfluxData Contributor License Agreement (CLA)](https://influxdata.com/community/cla/),
-available on the InfluxData website.
+The [Contributor License Agreement](https://www.influxdata.com/legal/cla/) is available on the main InfluxData site.
