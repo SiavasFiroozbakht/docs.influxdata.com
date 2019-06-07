@@ -46,7 +46,7 @@ These include:
 * `-config`: Path to the configuration file.
 * `-hostname`: Hostname that will override the hostname specified in the configuration file.
 * `-pidfile`: File where the process ID will be written.
-* `-logfile`: File where logs will be written.
+* `-log-file`: File where logs will be written.
 * `-log-level`: Threshold for writing messages to the log file. Valid values include `debug, info, warn, error`.
 
 ### Systemd
@@ -418,7 +418,18 @@ can be configured in the `[stats]` table grouping.
   stats-interval = "10s"
   database = "_kapacitor"
   retention-policy= "autogen"
-...
+# ...
+```
+
+##### Alert
+Kapacitor includes global alert configuration options that apply to all alerts
+created by the [alertNode](/kapacitor/v1.5/nodes/alert_node)
+
+```toml
+[alert]
+  # Persisting topics can become an I/O bottleneck under high load.
+  # This setting disables them entirely.
+  persist-topics = false
 ```
 
 #### Optional table groupings
@@ -460,7 +471,7 @@ be enabled and configured in the `[smtp]` properties table.
   # Sets all alerts in state-changes-only mode,
   # meaning alerts will only be sent if the alert state changes.
   state-changes-only = false
-...
+# ...
 ```
 
 Optional features include supported alert handlers, Docker services, user defined functions, input services, and discovery services.

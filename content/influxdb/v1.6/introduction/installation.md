@@ -39,13 +39,13 @@ For users who don't want to install any software and are ready to use InfluxDB,
 you may want to check out our
 [managed hosted InfluxDB offering](https://cloud.influxdata.com).
 
-{{< vertical-tabs >}}
+{{< tab-labels >}}
 {{% tabs %}}
 [Ubuntu & Debian](#)
 [Red Hat & CentOS](#)
 [SLES & openSUSE](#)
 [FreeBSD/PC-BSD](#)
-[MAC OS X](#)
+[macOS](#)
 {{% /tabs %}}
 {{< tab-content-container >}}
 
@@ -60,14 +60,46 @@ users can install the latest stable version of InfluxDB using the
 
 For Ubuntu users, add the InfluxData repository with the following commands:
 
+{{< code-tabs-wrapper >}}
+{{% code-tabs %}}
+[wget](#)
+[curl](#)
+{{% /code-tabs %}}
+{{% code-tab-content %}}
+```bash
+wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+source /etc/lsb-release
+echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+```
+{{% /code-tab-content %}}
+
+{{% code-tab-content %}}
 ```bash
 curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
 source /etc/lsb-release
 echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
 ```
+{{% /code-tab-content %}}
+{{< /code-tabs-wrapper >}}
 
 For Debian users, add the InfluxData repository:
 
+{{< code-tabs-wrapper >}}
+{{% code-tabs %}}
+[wget](#)
+[curl](#)
+{{% /code-tabs %}}
+{{% code-tab-content %}}
+```bash
+wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+source /etc/os-release
+test $VERSION_ID = "7" && echo "deb https://repos.influxdata.com/debian wheezy stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+test $VERSION_ID = "8" && echo "deb https://repos.influxdata.com/debian jessie stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+test $VERSION_ID = "9" && echo "deb https://repos.influxdata.com/debian stretch stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+```
+{{% /code-tab-content %}}
+
+{{% code-tab-content %}}
 ```bash
 curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
 source /etc/os-release
@@ -75,6 +107,8 @@ test $VERSION_ID = "7" && echo "deb https://repos.influxdata.com/debian wheezy s
 test $VERSION_ID = "8" && echo "deb https://repos.influxdata.com/debian jessie stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
 test $VERSION_ID = "9" && echo "deb https://repos.influxdata.com/debian stretch stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
 ```
+{{% /code-tab-content %}}
+{{< /code-tabs-wrapper >}}
 
 Then, install and start the InfluxDB service:
 
@@ -87,6 +121,7 @@ Or if your operating system is using systemd (Ubuntu 15.04+, Debian 8+):
 
 ```bash
 sudo apt-get update && sudo apt-get install influxdb
+sudo systemctl unmask influxdb.service
 sudo systemctl start influxdb
 ```
 
@@ -161,7 +196,7 @@ To have InfluxDB start at system boot, add `influxd_enable="YES"` to `/etc/rc.co
 
 {{% tab-content %}}
 
-Users of OS X 10.8 and higher can install InfluxDB using the [Homebrew](http://brew.sh/) package manager.
+Users of macOS 10.8 and higher can install InfluxDB using the [Homebrew](http://brew.sh/) package manager.
 Once `brew` is installed, you can install InfluxDB by running:
 
 ```bash
@@ -190,7 +225,7 @@ influxd -config /usr/local/etc/influxdb.conf
 {{% /tab-content %}}
 
 {{< /tab-content-container >}}
-{{< /vertical-tabs >}}
+{{< /tab-labels >}}
 
 ## Configuring InfluxDB OSS
 

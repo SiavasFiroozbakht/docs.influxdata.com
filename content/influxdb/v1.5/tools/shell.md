@@ -16,7 +16,7 @@ Use `influx` to write data (manually or from a file), query data interactively, 
 * [Commands](/influxdb/v1.5/tools/shell/#commands)
 
 ### Using `influx`
-If you [install](https://influxdata.com/downloads/) InfluxDB via a package manager, the CLI is installed at `/usr/bin/influx` (`/usr/local/bin/influx` on OS X).
+If you [install](https://influxdata.com/downloads/) InfluxDB via a package manager, the CLI is installed at `/usr/bin/influx` (`/usr/local/bin/influx` on macOS).
 
 To access the CLI, first launch the `influxd` database process and then launch `influx` in your terminal.
 Once you've entered the shell and successfully connected to an InfluxDB node, you'll see the following output:
@@ -85,7 +85,7 @@ By default, InfluxDB runs on localhost.
 
 #### [ `-import` ]
 
-Import new data from a file or import a previously [exported](https://github.com/influxdb/influxdb/blob/master/importer/README.md) database from a file.
+Import new data from a file or import a previously [exported](https://github.com/influxdb/influxdb/blob/1.5/importer/README.md) database from a file.
 See [-import](/influxdb/v1.5/tools/shell/#import-data-from-a-file-with-import).
 
 #### `-password 'password'`
@@ -295,7 +295,7 @@ Smaller batches, and more HTTP requests, will result in sub-optimal performance.
 By default, the HTTP request times out after five seconds.
 InfluxDB will still attempt to write the points after that time out but there will be no confirmation that they were successfully written.
 
-> **Note:** For how to export data from InfluxDB version 0.8.9, see [Exporting from 0.8.9](https://github.com/influxdb/influxdb/blob/master/importer/README.md).
+> **Note:** For how to export data from InfluxDB version 0.8.9, see [Exporting from 0.8.9](https://github.com/influxdb/influxdb/blob/1.5/importer/README.md).
 
 ## Commands
 

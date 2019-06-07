@@ -7,8 +7,87 @@ menu:
     parent: About the project
 ---
 
-## v1.6.1 [2018-08-03]
+## v1.6.6 [2019-02-28]
 
+### Bug fixes
+
+* Marked functions that always return floats as always returning floats.
+* Fix cardinality estimation error.
+* Update `tagKeyValue` mutex to write lock.
+
+## v1.6.5 [2019-01-10]
+
+### Features
+
+-	Reduce allocations in TSI TagSets implementation.
+
+### Bugfixes
+
+-	tsdb: Copy return value of IndexSet.MeasurementNamesByExpr.
+-   tsdb: Copy measurement names when expression is provided.
+-	Ensure orphaned series cleaned up with shard drop.
+-	Fix the derivative and others time ranges for aggregate data.
+-   Drop NaN (Not a Number) values when writing back points.
+-	Fix the stream iterator to not ignore errors.
+-	Do not panic when a series ID iterator is `nil`.
+-	Fix panic in IndexSet.
+-	Pass the query authorizer to subqueries.
+-	Fix TSM1 panic on reader error.
+-   Limit database and retention policy names to 255 characters.
+-   Update Go runtime to 1.10.6.
+
+## v1.6.4 [2018-10-16]
+
+### Features
+
+-	Set maximum cache size using `-max-cache-size` in `buildtsi` when building TSI index.
+
+### Bug fixes
+
+-	Fix `tsi1` sketch locking.
+-	Fix subquery functionality when a function references a tag from the subquery.
+-	Strip tags from a subquery when the outer query does not group by that tag.
+-	Add `-series-file` flag to `dumptsi` command help.
+-	Cleanup failed TSM snapshots.
+-	Fix TSM1 panic on reader error.
+-	Fix series file tombstoning.
+-	Fixing the stream iterator to not ignore the error.
+-	Do not panic when a series ID iterator is nil.
+-	Fix append of possible nil iterator.
+
+
+## v1.6.3 [2018-09-14]
+
+### Features
+
+-	Remove TSI1 HLL sketches from heap.
+
+### Bugfixes
+
+-	Fix the inherited interval for derivative and others.  The inherited interval from an outer query should not have caused
+an inner query to fail because inherited intervals are only implicitly passed to inner queries that support group
+by time functionality. Since an inner query with a derivative doesn't support grouping by time and the inner query itself
+doesn't specify a time, the outer query shouldn't have invalidated the inner query.
+-	Fix the derivative and others time ranges for aggregate data. The derivative function and others similar to it would
+preload themselves with data so that the first interval would be the start of the time range. That meant reading data outside
+of the time range. One change to the shard mapper made in v1.4.0 caused the shard mapper to constrict queries to the
+intervals given to the shard mapper. This was correct because the shard mapper can only deal with times it has mapped,
+but this broke the functionality of looking back into the past for the derivative and other functions that used that
+functionality. The query compiler has been updated with an additional attribute that records how many intervals in the past
+will need to be read so that the shard mapper can include extra times that it may not necessarily read from,
+but may be queried because of the above described functionality.
+
+## v1.6.2 [2018-08-27]
+
+### Features
+
+*	Reduce allocations in TSI TagSets implementation.
+
+### Bugfixes
+
+*	Ensure orphaned series cleaned up with shard drop.
+
+## v1.6.1 [2018-08-03]
 
 ### Features
 
@@ -34,7 +113,11 @@ menu:
 
 ### Breaking changes
 
-*	If math is used with the same selector multiple times, it will now act as a selector rather than an aggregate. See [#9563](https://github.com/influxdata/influxdb/pull/9563) for details.
+*	If math is used with the same selector multiple times, it will now act as a selector
+rather than an aggregate. See [#9563](https://github.com/influxdata/influxdb/pull/9563) for details.
+* For data received from Prometheus endpoints, every Prometheus measurement is now
+stored in its own InfluxDB measurement rather than storing everything in the `_` measurement
+using the Prometheus measurement name as the `__name__` label.
 
 ### Features
 
@@ -75,6 +158,23 @@ menu:
 * TSM: `TSMReader.Close` blocks until reads complete.
 * Return the correct auxiliary values for `top` and `bottom`.
 * Close TSMReaders from `FileStore.Close` after releasing FileStore mutex.
+
+## v1.5.5 [2018-12-19]
+
+### Features
+
+-	Reduce allocations in TSI TagSets implementation.
+
+### Bugfixes
+
+-	tsdb: Copy return value of IndexSet.MeasurementNamesByExpr
+-	Ensure orphaned series cleaned up with shard drop.
+-	Fix the derivative and others time ranges for aggregate data.
+-	Fix the stream iterator to not ignore errors.
+-	Do not panic when a series ID iterator is `nil`.
+-	Fix panic in IndexSet.
+-	Pass the query authorizer to subqueries.
+-	Fix TSM1 panic on reader error.
 
 ## v1.5.4 [2018-06-21]
 

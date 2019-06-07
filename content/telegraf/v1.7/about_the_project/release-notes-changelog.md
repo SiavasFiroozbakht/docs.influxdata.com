@@ -8,9 +8,22 @@ menu:
     parent: About the project
 ---
 
+## v1.7.4 [2018-08-29]
+
+### Bug fixes
+
+* Continue sending write batch in UDP if a metric is unserializable in InfluxDB (`influxdb`) output plugin.
+* Fix PowerDNS (`powerdns`) input plugin tests.
+* Fix `burrow_group` offset calculation for Burrow (`burrow`) input plugin.
+* Add `result_code` value for errors running ping command.
+* Remove timeout deadline for UDP in Syslog (`syslog`) input plugin.
+* Ensure channel is closed if an error occurs in CGroup (`cgroup`) input plugin.
+* Fix sending of basic authentication credentials in HTTP `(output)` output plugin.
+* Use the correct `GOARM` value in the Linux armel package.
+
 ## v1.7.3 [2018-08-07]
 
-### Bugfixes
+### Bug fixes
 
 * Reduce required Docker API version.
 * Keep leading whitespace for messages in syslog input.
@@ -1013,7 +1026,7 @@ consistent with the behavior of `collection_jitter`.
 - Make DNS lookups for chrony configurable.
 - Allow wildcard filtering of varnish stats.
 - Support for glob patterns in exec plugin commands configuration.
-- RabbitMQ input: made url parameter optional by using DefaultURL (http://localhost:15672) if not specified.
+- RabbitMQ input: made url parameter optional by using DefaultURL (`http://localhost:15672`) if not specified.
 - Limit AWS GetMetricStatistics requests to 10 per second.
 - RabbitMQ/Apache/InfluxDB inputs: made url(s) parameter optional by using reasonable input defaults if not specified.
 - Refactor of flush_jitter argument.
